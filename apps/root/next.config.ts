@@ -1,68 +1,83 @@
 import type { NextConfig } from "next";
 
-const normalizeBaseUrl = (url: string) => url.replace(/\/$/, "");
-
-const ROOT_BASE_URL = normalizeBaseUrl(process.env.ROOT_BASE_URL || "http://localhost:3000");
-const IPAD_BASE_URL = normalizeBaseUrl(process.env.IPAD_BASE_URL || "http://localhost:3002");
-const MAC_BASE_URL = normalizeBaseUrl(process.env.MAC_BASE_URL || "http://localhost:3003");
-const IPHONE_BASE_URL = normalizeBaseUrl(process.env.IPHONE_BASE_URL || "http://localhost:3001");
-
+const iphoneDomain = process.env.IPHONE_DOMAIN ?? "http://localhost:3001";
+const ipadDomain = process.env.IPAD_DOMAIN ?? "http://localhost:3002";
+const macbookDomain = process.env.MACBOOK_DOMAIN ?? "http://localhost:3003";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+      },
+      {
+        protocol: "https",
+        hostname: "example.com",
+      }
+    ],
+  },
   async rewrites() {
     return [
       {
-        source: "/",
-        destination: `${ROOT_BASE_URL}/`,
+        source: "/iphone/profile",
+        destination: "/profile",
       },
       {
-        source: "/ipad",
-        destination: `${IPAD_BASE_URL}/ipad`,
+        source: "/iphone/profile/:path+",
+        destination: "/profile/:path+",
       },
       {
-        source: "/ipad/:path*",
-        destination: `${IPAD_BASE_URL}/ipad/:path*`,
+        source: "/ipad/profile",
+        destination: "/profile",
       },
       {
-        source: "/ipad-static",
-        destination: `${IPAD_BASE_URL}/ipad-static`,
+        source: "/ipad/profile/:path+",
+        destination: "/profile/:path+",
       },
       {
-        source: "/ipad-static/:path*",
-        destination: `${IPAD_BASE_URL}/ipad-static/:path*`,
+        source: "/mac/profile",
+        destination: "/profile",
       },
       {
-        source: "/mac",
-        destination: `${MAC_BASE_URL}/mac`,
-      },
-      {
-        source: "/mac/:path*",
-        destination: `${MAC_BASE_URL}/mac/:path*`,
-      },
-      {
-        source: "/mac-static",
-        destination: `${MAC_BASE_URL}/mac-static`,
-      },
-      {
-        source: "/mac-static/:path*",
-        destination: `${MAC_BASE_URL}/mac-static/:path*`,
+        source: "/mac/profile/:path+",
+        destination: "/profile/:path+",
       },
       {
         source: "/iphone",
-        destination: `${IPHONE_BASE_URL}/iphone`,
+        destination: `${iphoneDomain}/iphone`,
       },
       {
-        source: "/iphone/:path*",
-        destination: `${IPHONE_BASE_URL}/iphone/:path*`,
+        source: "/iphone/:path+",
+        destination: `${iphoneDomain}/iphone/:path+`,
       },
       {
-        source: "/iphone-static",
-        destination: `${IPHONE_BASE_URL}/iphone-static`,
+        source: "/iphone-static/:path+",
+        destination: `${iphoneDomain}/iphone-static/:path+`,
       },
       {
-        source: "/iphone-static/:path*",
-        destination: `${IPHONE_BASE_URL}/iphone-static/:path*`,
+        source: "/ipad",
+        destination: `${ipadDomain}/ipad`,
+      },
+      {
+        source: "/ipad/:path+",
+        destination: `${ipadDomain}/ipad/:path+`,
+      },
+      {
+        source: "/ipad-static/:path+",
+        destination: `${ipadDomain}/ipad-static/:path+`,
+      },
+      {
+        source: "/mac",
+        destination: `${macbookDomain}/mac`,
+      },
+      {
+        source: "/mac/:path+",
+        destination: `${macbookDomain}/mac/:path+`,
+      },
+      {
+        source: "/mac-static/:path+",
+        destination: `${macbookDomain}/mac-static/:path+`,
       },
     ];
   },

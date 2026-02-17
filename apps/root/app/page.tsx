@@ -4,22 +4,21 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
-        <div className="text-center max-w-2xl">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">Welcome</h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Explore our micro-frontend platform built with modern technologies
-          </p>
-          <div className="flex gap-4 justify-center">
-            <button className="px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-              Get Started
-            </button>
-            <button className="px-8 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition">
-              Learn More
-            </button>
-          </div>
-        </div>
+      <div className="min-h-screen bg-zinc-50 px-6 py-12 text-zinc-900">
+      <header className="mx-auto mb-10 max-w-4xl text-center">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
+          Root Zone
+        </p>
+        <h1 className="mt-3 text-4xl font-semibold">Multi-Zone Router</h1>
+        <p className="mt-2 text-base text-zinc-600">
+          Choose a zone to open the dedicated experience.
+        </p>
+      </header>
+
+      <main className="mx-auto max-w-4xl">
+
       </main>
+    </div>
     </>
   );
 }
