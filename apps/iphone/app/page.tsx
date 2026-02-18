@@ -7,8 +7,8 @@ export default function Home() {
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
           Zone
         </p>
-        <h1 className="mt-3 text-4xl font-semibold">iPhone</h1>
-        <p className="mt-2 text-base text-zinc-600">
+        <h1 className="mt-6 bg-gradient-to-b from-zinc-900 to-zinc-500 bg-clip-text text-6xl font-extrabold tracking-tight text-transparent sm:text-7xl">iPhone</h1>
+        <p className="mx-auto mt-6 max-w-xl text-lg font-medium text-zinc-500 leading-relaxed">
           Compact flows, quick actions, and glanceable updates.
         </p>
       </header>
