@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { UserCom } from './user/ProfileToggleComponent';
+import { UserCom } from './components/user/ProfileToggleComponent';
 
 interface NavLink {
   label: string;
@@ -13,7 +13,7 @@ const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'iphone', href: '/iphone' },
   { label: 'ipad', href: '/ipad' },
-  { label: 'macbook', href: '/mac' }
+  { label: 'macbook', href: '/macbook' }
 ];
 
 export const Navigation: React.FC = () => {
